@@ -119,7 +119,7 @@ function nextStage(){
                 beforeSend: function(xhr) { 
                     xhr.setRequestHeader("Authorization", "Basic " + btoa("username:password")); 
                   },
-                url:'http://10.90.22.242:8080/mpdget_mpd_result',
+                url:'http://10.90.22.242/p2/mpdget_mpd_result',
                 type: 'POST',
                 dataType: 'JSON',
                 contentType: 'application/json',
