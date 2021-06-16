@@ -41,6 +41,7 @@ function Microphone(_fft) {
                 blobToSend = audioBlob;
                 const audioUrl = URL.createObjectURL(audioBlob);
                 $('#myplayer').attr('src', audioUrl);
+                nextStage();
                 };
             // analyser extracts frequency, waveform, and other data
             var analyser = context.createAnalyser();

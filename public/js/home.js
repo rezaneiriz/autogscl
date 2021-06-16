@@ -33,14 +33,16 @@ function checktext(){
 
 function startRecording() {
     if (recording == false) {
+        $('#wave-line').css('background-color', '#990000');
         recording = true;
         $('#recordme').val('Stop');
         $('#playme').attr('disabled', 'disabled');
         $('#wave-indicator').html('');
         left = 0;
-        Mic = new Microphone();
-        mycontext = new AudioContext();
-        Mic.startMic(mycontext);
+        beginRecording();
+        //Mic = new Microphone();
+        //mycontext = new AudioContext();
+        //Mic.startMic(mycontext);
         /*
         soundIndicatorInterval = window.setInterval(() => {
             if(recording == true){
@@ -53,10 +55,10 @@ function startRecording() {
         }, 100);
         */
         waveInterval = window.setInterval(() => {
-            if (recording == true && Mic.getVol() > 0) {
+            if (recording == true && volume > 0) {
                 var newbar = $('<span class="indic">');
                 newbar.css({
-                    height: Mic.getVol() + 'px',
+                    height: volume + 'px',
                     left: left + 'px'
                 });
                 $('#wave-indicator').append(newbar);
@@ -69,9 +71,10 @@ function startRecording() {
     else {
         recording = false;
         $('#recordme').val('Record');
-        mediaRecorder.stop();
+        //mediaRecorder.stop();
+        endRecording();
         $('#playme').removeAttr('disabled');
-        nextStage();
+        window.clearInterval(waveInterval);
     }
 
 }
@@ -95,20 +98,21 @@ function playingended(){
 }
 
 function showBars(control){
-    $('#wave-indicator span').css('border-color', '#007FFF');
+    $('#wave-indicator span').css('border-color', '#990000');
+    $('#wave-line').css('background-color', '#007fff');
     var myTime = control.currentTime;
     myTime = myTime * 1000;
     var bar = Math.floor(myTime/200);
     bar++;
-    $('#wave-indicator span').slice(0, bar).css('border-color', '#ffffff');
+    $('#wave-indicator span').slice(0, bar).css('border-color', '#007FFF');
 }
 
 
 function nextStage(){
-    console.log(blobToSend);
+    if (blob != null){
         var base64;
         var reader = new window.FileReader();
-        reader.readAsDataURL(blobToSend); 
+        reader.readAsDataURL(blob); 
         reader.onloadend = function() {
             base64 = reader.result;
             base64 = base64.split(',')[1];
@@ -116,19 +120,20 @@ function nextStage(){
             obj = JSON.stringify(obj);            
             $('#screen').fadeIn().css('display', 'flex');
             $.ajax({
-                beforeSend: function(xhr) { 
-                    xhr.setRequestHeader("Authorization", "Basic " + btoa("username:password")); 
-                  },
-                url:'http://10.90.22.242/p2/mpdget_mpd_result',
+                url:'/sendthis',
                 type: 'POST',
                 dataType: 'JSON',
                 contentType: 'application/json',
-                processData: false,
                 data: obj,
                 success: function(data){
-                    console.log(data);
+                    $('#btnEvaluate').attr('disabled', 'disabled');
+                    $('#screen').fadeOut();
+                    $('#fbBody').html(`<p>This is what you were supposed to say</p><p style="color: green">${data.cmu}</p><p>This is what we heard</p><p style="color: blue">${data.mpd}</p>`);
+                    console.log(data);                    
                 }
             })
 
         }
     }
+        
+}

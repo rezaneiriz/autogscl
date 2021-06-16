@@ -19,9 +19,21 @@
     <div>
         <input type="button" id="recordme" class="btn btn-sm btn-danger" value="Record" disabled="disabled" onclick="startRecording()"/>
         <input type="button" id="playme" class="btn btn-sm btn-success" value="Play" disabled="disabled" onclick="playaudio()"/>
+        <input type="button" id="btnEvaluate" class="btn btn-sm btn-warning" value="Get Feedback" disabled="disabled" onclick="nextStage()"/>
     </div>
-    <div id="wave-indicator"></div>
+    <div id="indic-cover">
+        <div id="wave-line"></div>
+        <div id="wave-indicator">
+        </div>
+    </div>
+    <div id="feedback">
+        <h3>Feedback</h3>
+        <div id="fbBody">You pronounced this as</div>
+    </div>
     <audio id="myplayer" controls="false" onended="playingended()" onTimeUpdate="showBars(this)"></audio>
+    <div id="screen">
+        <img src="img/loading.svg"/>
+    </div>
     <script>
         var Mic;
 var left = 0;
@@ -33,7 +45,7 @@ var audioChunks;
 var mediaRecorder;
 var blobToSend;
     </script>
-    <script src="js/audio.js"></script>
+    <script src="js/newaudio.js"></script>
     <script src="js/home.js"></script>
 </body>
 </html>

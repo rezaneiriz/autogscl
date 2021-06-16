@@ -32,20 +32,58 @@ body{
     margin-left: 5px;
 }
 .indic{
-    border: 1px solid #007fff;
+    border: 1px solid #990000;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     transition: all 0.2 ease-in;
     }
 #wave-indicator{
-    width: 70%;
+    width: 100%;
     height: 100px;
     padding: 2px;
-    background-color:#999999; 
     position: relative; 
     overflow-x: scroll;
 }
+#indic-cover{
+    width: 70%;
+    padding: 0;
+    margin: 0;
+    width: 70%;
+    height: 100px;
+    position: relative;
+}
+#wave-line{
+    width: 100%;
+    height: 1px;
+    background-color: rgba(80, 80, 80, 0.3);
+    position: absolute;
+    top:calc(50% - 1px);
+    left: 0px;
+}
 #myplayer{
     display: none;
+}
+#screen{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 10;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(200, 200, 0, 0.3);
+    display: none;
+}
+#screen img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: -100px;
+}
+#feedback{
+    width: 70%;
+}
+h3{
+    text-align: center;
 }
