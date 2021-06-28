@@ -128,8 +128,10 @@ function nextStage(){
                 success: function(data){
                     $('#btnEvaluate').attr('disabled', 'disabled');
                     $('#screen').fadeOut();
-                    $('#fbBody').html(`<p>This is what you were supposed to say</p><p style="color: green">${data.cmu}</p><p>This is what we heard</p><p style="color: blue">${data.mpd}</p>`);
-                    console.log(data);                    
+                    $('#fb1t').html('This is what you were supposed to say:');
+                    $('#fb1').html(data.cmu);
+                    $('#fb2t').html('This is what we heard:');
+                    $('#fb2').html(data.mpd);                
                 }
             })
 

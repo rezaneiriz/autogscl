@@ -28,7 +28,16 @@
     </div>
     <div id="feedback">
         <h3>Feedback</h3>
-        <div id="fbBody">You pronounced this as</div>
+        <table>
+            <tr>
+                <td id="fb1t"></td>
+                <td id="fb1"></td>
+            </tr>
+            <tr>
+                <td id="fb2t"></td>
+                <td id="fb2"></td>
+            </tr>
+        </table>
     </div>
     <audio id="myplayer" controls="false" onended="playingended()" onTimeUpdate="showBars(this)"></audio>
     <div id="screen">
