@@ -20,10 +20,17 @@ app.post('/sendthis', (req, res) => {
     var mywords = req.body.text.toLowerCase().split(/\s+/);
     var mytrascript = [];
 
+    var interim = '';
+    var phones = [];
     for (var i = 0; i < mywords.length; i++){
-        let interim = '';
-        interim = cmudict[mywords[i]].replace(/[^a-zA-z']/g, '');
-        mytrascript.push(ipa[interim]);
+        
+        interim = cmudict[mywords[i]].replace(/[^a-zA-z\s']/g, '');
+        console.log(interim);
+        phones = interim.split(' ');
+        for (j = 0; j< phones.length; j++){
+            phones[j] = ipa[phones[j]];
+        }
+        mytrascript.push(phones.join(' '));
     }
 
     // Set the headers
@@ -49,7 +56,7 @@ app.post('/sendthis', (req, res) => {
                 autotranscript[i] = ipa[autotranscript[i]];
             }
             
-            res.send({ mpd: autotranscript.join(' '), cmu: mytrascript.join(' ') });
+            res.send({ mpd: autotranscript.join('  '), cmu: mytrascript.join(' ') });
         }
         else{
             console.log(error);
@@ -65,6 +72,6 @@ server.listen(3000, () => {
     console.log('Listening to port 3000');
 });
 
-console.log(cmudict['he\'s']);
-
-console.log(ipa['AA']);
+var mytrascript = [];
+var mywords = 'Hello horse';
+var mywords = mywords.toLowerCase().split(/\s+/);
