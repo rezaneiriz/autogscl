@@ -90,3 +90,7 @@ h3{
 .wrong{
     color: red;
 }
+span{
+    margin-right: 3px;
+    margin-left: 3px;
+}

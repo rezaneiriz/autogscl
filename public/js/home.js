@@ -163,6 +163,7 @@ function nextStage(){
                         $('#word').append($(word));
                         $('#cmu').append($(cmu));
                         $('#mpd').append($(mpd));
+                        $('#screen').fadeOut();
                     }
                                  
                 }
