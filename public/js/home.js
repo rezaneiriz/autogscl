@@ -157,6 +157,9 @@ function nextStage(){
                             }
                             else{
                                 $(phone).html(feedback[i].mpd_phns[j]);
+                                if (feedback[i].mpd_phns[j] != feedback[i].cmu_phns[j]){
+                                    $(phone).addClass('wrong');
+                                }
                             }
                             $(mpd).append($(phone));
                         }
