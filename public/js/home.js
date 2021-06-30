@@ -126,6 +126,19 @@ function nextStage(){
                 contentType: 'application/json',
                 data: obj,
                 success: function(data){
+                    $('.fb').remove();
+                    var feedback = JSON.parse(data.feedback);
+                    for (var i in feedback){
+                        var word = $('<td class="fb"/>');
+                        $(word).html(i.word);
+                        var cmu = $('<td class="fb"/>');
+                        $(cmu).html(i.cmu_phns.join(' '));
+                        var mpd = $('<td class="fb"/>');
+                        $(mpd).html(i.mpd_phns.join(' '));
+                        $('#word').append($(word));
+                        $('#cmu').append($(cmu));
+                        $('mpd').append($(mpd));
+                    }
                     $('#btnEvaluate').attr('disabled', 'disabled');
                     $('#screen').fadeOut();
                     $('#fb1t').html('This is what you were supposed to say:');

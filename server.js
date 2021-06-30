@@ -53,7 +53,7 @@ app.post('/sendthis', (req, res) => {
             // Print out the response body
             console.log(JSON.stringify(body));
             
-            res.send({ mpd: body, cmu: mytrascript.join(' ') });
+            res.send({ feedback: body});
         }
         else{
             console.log(error);
