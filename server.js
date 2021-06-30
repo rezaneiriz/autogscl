@@ -51,7 +51,7 @@ app.post('/sendthis', (req, res) => {
     request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             // Print out the response body
-            console.log(body.json());
+            console.log(JSON.stringify(body));
             
             res.send({ mpd: body, cmu: mytrascript.join(' ') });
         }
