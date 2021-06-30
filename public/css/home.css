@@ -103,12 +103,15 @@ span{
 .wrong-box{
     background-color: red;
     border:1px #333 solid;
+    border-radius: 3px;
 }
 .missing-box{
-    color:#ff9900;
+    background-color:#ff9900;
     border:1px #333 solid;
+    border-radius: 3px;
 }
 .extra-box{
-    color:#990099;
+    background-color:#990099;
     border:1px #333 solid;
+    border-radius: 3px;
 }
