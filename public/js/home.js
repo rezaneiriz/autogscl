@@ -136,13 +136,23 @@ function nextStage(){
                         for (var j = 0; j < feedback[i].cmu_phns.length; j++){
                             var phone = $('<span/>');
                             if (feedback[i].mpd_phns[j] == 'sil'){
-                                $(phone).html(feedback[i].cmu_phns[j]).addClass('wrong');
+                                if(feedback[i].cmu_phns[j].length<2){
+                                    $(phone).html(feedback[i].cmu_phns[j] + '&nbsp').addClass('wrong');
+                                }
+                                else{
+                                    $(phone).html(feedback[i].cmu_phns[j]).addClass('wrong');
+                                }
                             }
                             else if (feedback[i].cmu_phns[j] == 'sil'){
                                 $(phone).html('&nbsp;&nbsp;');
                             }
                             else{
-                                $(phone).html(feedback[i].cmu_phns[j]);
+                                if(feedback[i].cmu_phns[j].length<2){
+                                    $(phone).html(feedback[i].cmu_phns[j] + '&nbsp;')
+                                }
+                                else{
+                                    $(phone).html(feedback[i].cmu_phns[j]);
+                                }
                             }
                             $(cmu).append($(phone));
                         }
@@ -150,13 +160,23 @@ function nextStage(){
                         for (var j = 0; j < feedback[i].mpd_phns.length; j++){
                             var phone = $('<span/>');
                             if (feedback[i].cmu_phns[j] == 'sil'){
-                                $(phone).html(feedback[i].cmu_phns[j]).addClass('wrong');
+                                if(feedback[i].cmu_phns[j].length<2){
+                                    $(phone).html(feedback[i].cmu_phns[j] + '&nbsp;').addClass('wrong');
+                                }else{
+
+                                    $(phone).html(feedback[i].cmu_phns[j]).addClass('wrong');
+                                }
                             }
                             else if (feedback[i].mpd_phns[j] == 'sil'){
                                 $(phone).html('&nbsp;&nbsp;');
                             }
                             else{
-                                $(phone).html(feedback[i].mpd_phns[j]);
+                                if(feedback[i].cmu_phns[j].length<2){
+                                    $(phone).html(feedback[i].cmu_phns[j] + '&nbsp;');
+                                }else{
+
+                                    $(phone).html(feedback[i].cmu_phns[j]);
+                                }
                                 if (feedback[i].mpd_phns[j] != feedback[i].cmu_phns[j]){
                                     $(phone).addClass('wrong');
                                 }
