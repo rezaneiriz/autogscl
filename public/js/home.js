@@ -129,7 +129,7 @@ function nextStage(){
                     $('.fb').remove();
                     var feedback = JSON.parse(data.feedback);
                     console.log(feedback);
-                    for (var i = 0; i < feedback.length;i++){
+                    for (var i = 0; i < Object.keys(feedback).length;i++){
                         var word = $('<td class="fb"/>');
                         $(word).html(feedback[i].word);
                         var cmu = $('<td class="fb"/>');
