@@ -128,6 +128,7 @@ function nextStage(){
                 success: function(data){
                     $('.fb').remove();
                     var feedback = JSON.parse(data.feedback);
+                    console.log(feedback);
                     for (var i in feedback){
                         var word = $('<td class="fb"/>');
                         $(word).html(i['word']);
