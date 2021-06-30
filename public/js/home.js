@@ -172,10 +172,10 @@ function nextStage(){
                             }
                             else{
                                 if(feedback[i].cmu_phns[j].length<2){
-                                    $(phone).html(feedback[i].cmu_phns[j] + '&nbsp;');
+                                    $(phone).html(feedback[i].mpd_phns[j] + '&nbsp;');
                                 }else{
 
-                                    $(phone).html(feedback[i].cmu_phns[j]);
+                                    $(phone).html(feedback[i].mpd_phns[j]);
                                 }
                                 if (feedback[i].mpd_phns[j] != feedback[i].cmu_phns[j]){
                                     $(phone).addClass('wrong');
