@@ -130,11 +130,11 @@ function nextStage(){
                     var feedback = JSON.parse(data.feedback);
                     for (var i in feedback){
                         var word = $('<td class="fb"/>');
-                        $(word).html(i.word);
+                        $(word).html(i['word']);
                         var cmu = $('<td class="fb"/>');
-                        $(cmu).html(i.cmu_phns.join(' '));
+                        $(cmu).html(i['cmu_phns']);
                         var mpd = $('<td class="fb"/>');
-                        $(mpd).html(i.mpd_phns.join(' '));
+                        $(mpd).html(i['mpd_phns']);
                         $('#word').append($(word));
                         $('#cmu').append($(cmu));
                         $('mpd').append($(mpd));
