@@ -131,7 +131,8 @@ function nextStage(){
                     $('#fb1t').html('This is what you were supposed to say:');
                     $('#fb1').html(data.cmu);
                     $('#fb2t').html('This is what we heard:');
-                    $('#fb2').html(data.mpd);                
+                    $('#fb2').html(data.mpd);  
+                    console.log(data.mpd);             
                 }
             })
 
