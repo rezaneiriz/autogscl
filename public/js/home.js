@@ -132,7 +132,7 @@ function nextStage(){
                     $('#fb1').html(data.cmu);
                     $('#fb2t').html('This is what we heard:');
                     $('#fb2').html(data.mpd);  
-                    console.log(data.mpd);             
+                    console.log(JSON.parse(data.mpd));             
                 }
             })
 
