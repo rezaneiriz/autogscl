@@ -160,18 +160,18 @@ function nextStage(){
                         for (var j = 0; j < feedback[i].mpd_phns.length; j++){
                             var phone = $('<span/>');
                             if (feedback[i].cmu_phns[j] == 'sil'){
-                                if(feedback[i].cmu_phns[j].length<2){
-                                    $(phone).html(feedback[i].cmu_phns[j] + '&nbsp;').addClass('wrong');
+                                if(feedback[i].mpd_phns[j].length<2){
+                                    $(phone).html(feedback[i].mpd_phns[j] + '&nbsp;').addClass('wrong');
                                 }else{
 
-                                    $(phone).html(feedback[i].cmu_phns[j]).addClass('wrong');
+                                    $(phone).html(feedback[i].mpd_phns[j]).addClass('wrong');
                                 }
                             }
                             else if (feedback[i].mpd_phns[j] == 'sil'){
                                 $(phone).html('&nbsp;&nbsp;');
                             }
                             else{
-                                if(feedback[i].cmu_phns[j].length<2){
+                                if(feedback[i].mpd_phns[j].length<2){
                                     $(phone).html(feedback[i].mpd_phns[j] + '&nbsp;');
                                 }else{
 
