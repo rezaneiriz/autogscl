@@ -133,20 +133,38 @@ function nextStage(){
                         var word = $('<td class="fb"/>');
                         $(word).html(feedback[i].word);
                         var cmu = $('<td class="fb"/>');
-                        $(cmu).html(feedback[i].cmu_phns);
+                        for (var j = 0; j < feedback[i].cmu_phns.length; j++){
+                            var phone = $('<span/>');
+                            if (feedback[i].mpd_phns[j] == 'sil'){
+                                $(phone).html(feedback[i].cmu_phns[j]).addClass('wrong');
+                            }
+                            else if (feedback[i].cmu_phns[j] == 'sil'){
+                                $(phone).html('&nbsp;&nbsp;');
+                            }
+                            else{
+                                $(phone).html(feedback[i].cmu_phns[j]);
+                            }
+                            $(cmu).append($(phone));
+                        }
                         var mpd = $('<td class="fb"/>');
-                        $(mpd).html(feedback[i].mpd_phns);
+                        for (var j = 0; j < feedback[i].mpd_phns.length; j++){
+                            var phone = $('<span/>');
+                            if (feedback[i].cmu_phns[j] == 'sil'){
+                                $(phone).html(feedback[i].cmu_phns[j]).addClass('wrong');
+                            }
+                            else if (feedback[i].mpd_phns[j] == 'sil'){
+                                $(phone).html('&nbsp;&nbsp;');
+                            }
+                            else{
+                                $(phone).html(feedback[i].mpd_phns[j]);
+                            }
+                            $(mpd).append($(phone));
+                        }
                         $('#word').append($(word));
                         $('#cmu').append($(cmu));
-                        $('mpd').append($(mpd));
+                        $('#mpd').append($(mpd));
                     }
-                    $('#btnEvaluate').attr('disabled', 'disabled');
-                    $('#screen').fadeOut();
-                    $('#fb1t').html('This is what you were supposed to say:');
-                    $('#fb1').html(data.cmu);
-                    $('#fb2t').html('This is what we heard:');
-                    $('#fb2').html(data.mpd);  
-                    console.log(JSON.parse(data.mpd));             
+                                 
                 }
             })
 

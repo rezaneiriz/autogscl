@@ -87,3 +87,6 @@ body{
 h3{
     text-align: center;
 }
+.wrong{
+    color: red;
+}
