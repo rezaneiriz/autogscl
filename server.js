@@ -51,7 +51,7 @@ app.post('/sendthis', (req, res) => {
     request(options, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             // Print out the response body
-            let autotranscript = body.split(' ');
+            console.log(body);
             for (var i = 0; i < autotranscript.length; i++){
                 autotranscript[i] = ipa[autotranscript[i]];
             }
