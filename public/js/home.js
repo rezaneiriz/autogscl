@@ -137,10 +137,10 @@ function nextStage(){
                             var phone = $('<span/>');
                             if (feedback[i].mpd_phns[j] == 'sil'){
                                 if(feedback[i].cmu_phns[j].length<2){
-                                    $(phone).html(feedback[i].cmu_phns[j] + '&nbsp').addClass('wrong');
+                                    $(phone).html(feedback[i].cmu_phns[j] + '&nbsp').addClass('missing');
                                 }
                                 else{
-                                    $(phone).html(feedback[i].cmu_phns[j]).addClass('wrong');
+                                    $(phone).html(feedback[i].cmu_phns[j]).addClass('missing');
                                 }
                             }
                             else if (feedback[i].cmu_phns[j] == 'sil'){
@@ -161,10 +161,10 @@ function nextStage(){
                             var phone = $('<span/>');
                             if (feedback[i].cmu_phns[j] == 'sil'){
                                 if(feedback[i].mpd_phns[j].length<2){
-                                    $(phone).html(feedback[i].mpd_phns[j] + '&nbsp;').addClass('wrong');
+                                    $(phone).html(feedback[i].mpd_phns[j] + '&nbsp;').addClass('extra');
                                 }else{
 
-                                    $(phone).html(feedback[i].mpd_phns[j]).addClass('wrong');
+                                    $(phone).html(feedback[i].mpd_phns[j]).addClass('extra');
                                 }
                             }
                             else if (feedback[i].mpd_phns[j] == 'sil'){

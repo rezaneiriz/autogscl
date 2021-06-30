@@ -94,3 +94,9 @@ span{
     margin-right: 3px;
     margin-left: 3px;
 }
+.missing{
+    color: #ff9900;
+}
+.extra{
+    color:#990099;
+}
