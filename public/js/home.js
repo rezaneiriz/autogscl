@@ -129,13 +129,13 @@ function nextStage(){
                     $('.fb').remove();
                     var feedback = JSON.parse(data.feedback);
                     console.log(feedback);
-                    for (var i in feedback){
+                    for (var i = 0; i < feedback.length;i++){
                         var word = $('<td class="fb"/>');
-                        $(word).html(i['word']);
+                        $(word).html(feedback[i].word);
                         var cmu = $('<td class="fb"/>');
-                        $(cmu).html(i['cmu_phns']);
+                        $(cmu).html(feedback[i].cmu_phns);
                         var mpd = $('<td class="fb"/>');
-                        $(mpd).html(i['mpd_phns']);
+                        $(mpd).html(feedback[i].mpd_phns);
                         $('#word').append($(word));
                         $('#cmu').append($(cmu));
                         $('mpd').append($(mpd));
