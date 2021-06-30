@@ -100,3 +100,15 @@ span{
 .extra{
     color:#990099;
 }
+.wrong-box{
+    background-color: red;
+    border:1px #333 solid;
+}
+.missing-box{
+    color:#ff9900;
+    border:1px #333 solid;
+}
+.extra-box{
+    color:#990099;
+    border:1px #333 solid;
+}
