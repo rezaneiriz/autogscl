@@ -52,11 +52,8 @@ app.post('/sendthis', (req, res) => {
         if (!error && response.statusCode == 200) {
             // Print out the response body
             console.log(body);
-            for (var i = 0; i < autotranscript.length; i++){
-                autotranscript[i] = ipa[autotranscript[i]];
-            }
             
-            res.send({ mpd: autotranscript.join('  '), cmu: mytrascript.join(' ') });
+            res.send({ mpd: body, cmu: mytrascript.join(' ') });
         }
         else{
             console.log(error);
