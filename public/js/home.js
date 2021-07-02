@@ -175,6 +175,7 @@ function nextStage(){
                         $(fbtable).append($(cmuRow));
                         $(fbtable).append($(mpdRow));
                         $(cmumpd).append($(fbtable));
+                        $('#cmu-mpd').append($(cmumpd));
                         
                         $('#screen').fadeOut();
                     }
