@@ -119,3 +119,10 @@ span{
     padding-right: 5px;
     padding-left: 5px;
 }
+.center{
+    text-align: center;
+}
+.border{
+    border-left: 1px #dee2e6 solid;
+    border-right: 1px #dee2e6 solid;
+}

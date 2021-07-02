@@ -132,11 +132,11 @@ function nextStage(){
                     for (var i = 0; i < Object.keys(feedback).length;i++){
 
                         var word = $('<td class="fb"/>');
-                        $(word).html(feedback[i].word);
+                        $(word).html(feedback[i].word).addClass('center');
                         $('#word').append($(word));
 
                         
-                        var cmumpd = $('<td class="fb"/>');                        
+                        var cmumpd = $('<td class="fb border"/>');                        
                         var fbtable = $('<table />');
                         var cmuRow = $('<tr />');
                         var mpdRow = $('<tr />');
