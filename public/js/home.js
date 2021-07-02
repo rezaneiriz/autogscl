@@ -168,7 +168,8 @@ function nextStage(){
                                 $(mpdFb).html(mpd);
                             }
 
-                            
+                            $(cmuFb).addClass('space');
+                            $(mpdFb).addClass('space');
                             $(cmuRow).append($(cmuFb));
                             $(mpdRow).append($(mpdFb));
                         }
