@@ -130,62 +130,52 @@ function nextStage(){
                     var feedback = JSON.parse(data.feedback);
                     console.log(feedback);
                     for (var i = 0; i < Object.keys(feedback).length;i++){
+
                         var word = $('<td class="fb"/>');
                         $(word).html(feedback[i].word);
-                        var cmu = $('<td class="fb"/>');
-                        for (var j = 0; j < feedback[i].cmu_phns.length; j++){
-                            var phone = $('<span/>');
-                            if (feedback[i].mpd_phns[j] == 'sil'){
-                                if(feedback[i].cmu_phns[j].length<2){
-                                    $(phone).html(feedback[i].cmu_phns[j] + '&nbsp').addClass('missing');
-                                }
-                                else{
-                                    $(phone).html(feedback[i].cmu_phns[j]).addClass('missing');
-                                }
-                            }
-                            else if (feedback[i].cmu_phns[j] == 'sil'){
-                                $(phone).html('&nbsp;&nbsp;');
-                            }
-                            else{
-                                if(feedback[i].cmu_phns[j].length<2){
-                                    $(phone).html(feedback[i].cmu_phns[j] + '&nbsp;')
-                                }
-                                else{
-                                    $(phone).html(feedback[i].cmu_phns[j]);
-                                }
-                            }
-                            $(cmu).append($(phone));
-                        }
-                        var mpd = $('<td class="fb"/>');
-                        for (var j = 0; j < feedback[i].mpd_phns.length; j++){
-                            var phone = $('<span/>');
-                            if (feedback[i].cmu_phns[j] == 'sil'){
-                                if(feedback[i].mpd_phns[j].length<2){
-                                    $(phone).html(feedback[i].mpd_phns[j] + '&nbsp;').addClass('extra');
-                                }else{
-
-                                    $(phone).html(feedback[i].mpd_phns[j]).addClass('extra');
-                                }
-                            }
-                            else if (feedback[i].mpd_phns[j] == 'sil'){
-                                $(phone).html('&nbsp;&nbsp;');
-                            }
-                            else{
-                                if(feedback[i].mpd_phns[j].length<2){
-                                    $(phone).html(feedback[i].mpd_phns[j] + '&nbsp;');
-                                }else{
-
-                                    $(phone).html(feedback[i].mpd_phns[j]);
-                                }
-                                if (feedback[i].mpd_phns[j] != feedback[i].cmu_phns[j]){
-                                    $(phone).addClass('wrong');
-                                }
-                            }
-                            $(mpd).append($(phone));
-                        }
                         $('#word').append($(word));
-                        $('#cmu').append($(cmu));
-                        $('#mpd').append($(mpd));
+
+                        
+                        var cmumpd = $('<td class="fb"/>');                        
+                        var fbtable = $('<table />');
+                        var cmuRow = $('<tr />');
+                        var mpdRow = $('<tr />');
+                        for (var j = 0; j< feedback[i].cmu_phns.length; j++){
+                            var cmu = feedback[i].cmu_phns[j];
+                            var mpd = feedback[i].mpd_phns[j];
+                            if (cmu == 'sil'){
+                                var cmuFb = $('<td />');
+                                $(cmuFb).html('');
+                                var mpdFb = $('<td />');
+                                $(mpdFb).html(mpd).addClass('extra');
+                            }
+                            else if(mpd == 'sil'){
+                                var cmuFb = $('<td />').addClass('missing');
+                                $(cmuFb).html(cmu);
+                                var mpdFb = $('<td />');
+                                $(mpdFb).html('');
+                            }
+                            else if (cmu != mpd){
+                                var cmuFb = $('<td />');
+                                $(cmuFb).html(cmu);
+                                var mpdFb = $('<td />');
+                                $(mpdFb).html(mpd).addClass('wrong');
+                            }
+                            else{
+                                var cmuFb = $('<td />');
+                                $(cmuFb).html(cmu);
+                                var mpdFb = $('<td />');
+                                $(mpdFb).html(mpd);
+                            }
+
+                            
+                            $(cmuRow).append($(cmuFb));
+                            $(mpdRow).append($(mpdFb));
+                        }
+                        $(fbtable).append($(cmuRow));
+                        $(fbtable).append($(mpdRow));
+                        $(cmumpd).append($(frable));
+                        
                         $('#screen').fadeOut();
                     }
                                  
