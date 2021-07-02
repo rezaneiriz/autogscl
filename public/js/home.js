@@ -174,7 +174,7 @@ function nextStage(){
                         }
                         $(fbtable).append($(cmuRow));
                         $(fbtable).append($(mpdRow));
-                        $(cmumpd).append($(frable));
+                        $(cmumpd).append($(ftable));
                         
                         $('#screen').fadeOut();
                     }
