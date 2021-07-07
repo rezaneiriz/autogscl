@@ -232,6 +232,7 @@ function nextStage(){
 function readThis(text){
     var speech = new SpeechSynthesisUtterance();
     speech.lang = 'en';
+    speech.rate = 0.8;
     speech.text = $(text).find('.wordbody').eq(0).html();
     window.speechSynthesis.speak(speech);
 }
