@@ -171,7 +171,7 @@ function nextStage(){
                     for (var i = 0; i < Object.keys(feedback).length;i++){
 
                         var word = $('<td class="fb" onclick="readThis(this)"/>');
-                        $(word).html(feedback[i].word + '&nbsp;<span class="volume-up"></span>').addClass('tts nowrap');
+                        $(word).html('<span class="wordbody">' + feedback[i].word + '</span>&nbsp;<span class="volume-up"></span>').addClass('tts nowrap');
                         $('#word').append($(word));
 
                         
@@ -232,6 +232,6 @@ function nextStage(){
 function readThis(text){
     var speech = new SpeechSynthesisUtterance();
     speech.lang = 'en';
-    speech.text = $(text).html();
+    speech.text = $(text).find('.wordbody').eq(0).html();
     window.speechSynthesis.speak(speech);
 }
