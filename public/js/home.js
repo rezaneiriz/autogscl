@@ -14,7 +14,7 @@ var dictionary = {
     'ey': 'e&#618;',
     'f': 'f',
     'g': 'g',
-    'gg': 'h',
+    'hh': 'h',
     'ih': '&#618;',
     'iy': 'i:',
     'jh': 'd&#658;',
@@ -183,9 +183,9 @@ function nextStage(){
                             var cmu = feedback[i].cmu_phns[j];
                             var mpd = feedback[i].mpd_phns[j];
                             if (cmu == 'sil'){
-                                var cmuFb = $('<td />').addClass('content-width');
+                                var cmuFb = $('<td />');
                                 $(cmuFb).html('');
-                                var mpdFb = $('<td />').addClass('content-width');
+                                var mpdFb = $('<td />');
                                 $(mpdFb).html(dictionary[mpd]).addClass('extra');
                             }
                             else if(mpd == 'sil'){

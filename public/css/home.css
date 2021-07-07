@@ -131,9 +131,6 @@ span{
     white-space: nowrap;
     text-overflow: auto;
 }
-.content-width{
-    width:1%;
-}
 .tts{
     cursor: pointer;
     font-weight: bold;
@@ -141,4 +138,7 @@ span{
 }
 .tts:hover{
     color:#009fff;
+}
+.table{
+    display: inline-block;
 }
