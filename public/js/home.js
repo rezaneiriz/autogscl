@@ -171,7 +171,7 @@ function nextStage(){
                     for (var i = 0; i < Object.keys(feedback).length;i++){
 
                         var word = $('<td class="fb" onclick="readThis(this)"/>');
-                        $(word).html(feedback[i].word).addClass('tts nowrap');
+                        $(word).html(feedback[i].word + '&nbsp;<span class="volume-up"></span>').addClass('tts nowrap');
                         $('#word').append($(word));
 
                         
