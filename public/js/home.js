@@ -172,6 +172,11 @@ function nextStage(){
 
                         var word = $('<td class="fb"/>');
                         $(word).html(feedback[i].word).addClass('tts');
+                        $(word).on('click', ()=>{
+                            var text = $(this).html();
+                            console.log(text);
+                            readThis(text);
+                        })
                         $('#word').append($(word));
 
                         
