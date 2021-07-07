@@ -170,13 +170,8 @@ function nextStage(){
                     console.log(feedback);
                     for (var i = 0; i < Object.keys(feedback).length;i++){
 
-                        var word = $('<td class="fb"/>');
-                        $(word).html(feedback[i].word).addClass('tts');
-                        $(word).on('click', ()=>{
-                            var text = $(this).html();
-                            console.log(text);
-                            readThis(text);
-                        })
+                        var word = $('<td class="fb" onclick="readThis(this)"/>');
+                        $(word).html(feedback[i].word).addClass('tts nowrap');
                         $('#word').append($(word));
 
                         
@@ -237,11 +232,6 @@ function nextStage(){
 function readThis(text){
     var speech = new SpeechSynthesisUtterance();
     speech.lang = 'en';
-    speech.text = text;
+    speech.text = $(text).html();
     window.speechSynthesis.speak(speech);
 }
-$('.tts').on('click', ()=>{
-    var text = $(this).html();
-    console.log(text);
-    readThis(text);
-})
