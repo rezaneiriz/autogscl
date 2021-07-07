@@ -1,4 +1,43 @@
-
+var dictionary = {
+    'AA': '&#593;',
+    'AE': '&aelig;',
+    'AH': '&#601;',
+    'AO': '&#596;',
+    'AW': 'a&#650;',
+    'AY': 'a&#618;',
+    'B': 'b',
+    'CH': 't&#643;',
+    'D': 'd',
+    'DH': '&eth;',
+    'EH': '&epsilon;',
+    'ER': '&#604;r',
+    'EY': 'e&#618;',
+    'F': 'f',
+    'G': 'g',
+    'HH': 'h',
+    'IH': '&#618;',
+    'IY': 'i:',
+    'JH': 'd&#658;',
+    'K': 'k',
+    'L': 'l',
+    'M': 'm',
+    'N': 'n',
+    'NG': '&#627;',
+    'OW': 'o&#650',
+    'OY': 'o&#618;',
+    'P': 'p',
+    'R': 'r',
+    'S': 's',
+    'SH': '&#643;',
+    'T': 't',
+    'TH': '&#629;',
+    'UH':'&#650;',
+    'UW': 'u',
+    'V': 'v',
+    'W': 'w',
+    'Z': 'z',
+    'ZH': '&#658;'
+}
 
 $(function(){
 
@@ -132,7 +171,7 @@ function nextStage(){
                     for (var i = 0; i < Object.keys(feedback).length;i++){
 
                         var word = $('<td class="fb"/>');
-                        $(word).html(feedback[i].word).addClass('center');
+                        $(word).html(feedback[i].word).addClass('tts');
                         $('#word').append($(word));
 
                         
@@ -144,28 +183,28 @@ function nextStage(){
                             var cmu = feedback[i].cmu_phns[j];
                             var mpd = feedback[i].mpd_phns[j];
                             if (cmu == 'sil'){
-                                var cmuFb = $('<td />');
+                                var cmuFb = $('<td />').addClass('content-width');
                                 $(cmuFb).html('');
-                                var mpdFb = $('<td />');
-                                $(mpdFb).html(mpd).addClass('extra');
+                                var mpdFb = $('<td />').addClass('content-width');
+                                $(mpdFb).html(dictionary[mpd]).addClass('extra');
                             }
                             else if(mpd == 'sil'){
                                 var cmuFb = $('<td />').addClass('missing');
-                                $(cmuFb).html(cmu);
+                                $(cmuFb).html(dictionary[cmu]);
                                 var mpdFb = $('<td />');
                                 $(mpdFb).html('');
                             }
                             else if (cmu != mpd){
                                 var cmuFb = $('<td />');
-                                $(cmuFb).html(cmu);
+                                $(cmuFb).html(dictionary[cmu]);
                                 var mpdFb = $('<td />');
-                                $(mpdFb).html(mpd).addClass('wrong');
+                                $(mpdFb).html(dictionary[mpd]).addClass('wrong');
                             }
                             else{
                                 var cmuFb = $('<td />');
-                                $(cmuFb).html(cmu);
+                                $(cmuFb).html(dictionary[cmu]);
                                 var mpdFb = $('<td />');
-                                $(mpdFb).html(mpd);
+                                $(mpdFb).html(dictionary[mpd]);
                             }
 
                             $(cmuFb).addClass('space');
@@ -179,6 +218,7 @@ function nextStage(){
                         $('#cmu-mpd').append($(cmumpd));
                         
                         $('#screen').fadeOut();
+                        $('#btnEvaluate').attr('disabled', 'disabled');
                     }
                                  
                 }
@@ -188,3 +228,14 @@ function nextStage(){
     }
         
 }
+
+function readThis(text){
+    var speech = new SpeechSynthesisUtterance();
+    speech.lang = 'en';
+    speech.text = text;
+    window.speechSynthesis.speak(speech);
+}
+$('.tts').on('click', ()=>{
+    var text = $(this).html();
+    readThis(text);
+})

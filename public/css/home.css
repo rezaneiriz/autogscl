@@ -127,3 +127,18 @@ span{
     border-right: 1px #dee2e6 solid;
     padding:0px;
 }
+.nowrap{
+    white-space: nowrap;
+    text-overflow: auto;
+}
+.content-width{
+    width:1%;
+}
+.tts{
+    cursor: pointer;
+    font-weight: bold;
+    
+}
+.tts:hover{
+    color:#009fff;
+}
