@@ -112,8 +112,7 @@ function checktext(){
 }
 
 function startRecording() {
-    $('#fileUpload')[0].click();
-
+    $('#fileUploader')[0].click();
 }
 
 function playaudio(){
