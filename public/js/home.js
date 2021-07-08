@@ -38,7 +38,7 @@ var dictionary = {
     'z': 'z',
     'zh': '&#658;',
     'y': 'j'
-}
+};
 var examples = {
     'iy' : ['h#e&', 'w#ee&k', 'th#e&se'],
     'ih' : ['h#i&d', 'h#i&s', 'l#i&ve'],
@@ -79,12 +79,10 @@ var examples = {
     'y' : ['#y&our', '#y&oung', 'be#y&ond'],
     'l' : ['#l&oud', 'fo#ll&ow', 'ca#ll&'],
     'r' : ['#r&oom', 'a#r&ound', 'fo#r&']
-}
+};
 
 
-$(function(){
 
-});
 
 function activate(){
     $('#mylbl').css({
