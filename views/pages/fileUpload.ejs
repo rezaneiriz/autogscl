@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <link href="css/home.css" rel="stylesheet" type="text/css" />
+    <title>File Upload</title>
+
+</head>
+<body>
+    <div id="sentence_input" onclick="activate()">
+        <span id="mylbl">Type your text here</span>
+        <input tyep="text" id="sentence" onblur="goback()" onkeyup="checktext()"/>
+    </div>
+    <div>
+        <input type="button" id="recordme" class="btn btn-sm btn-danger" value="Upload" disabled="disabled" onclick="startRecording()"/>
+        <input type="button" id="playme" class="btn btn-sm btn-success" value="Play" disabled="disabled" onclick="playaudio()"/>
+        <input type="button" id="btnEvaluate" class="btn btn-sm btn-warning" value="Get Feedback" disabled="disabled" onclick="nextStage()"/>
+        <input type="file" id="fileUploader" style="display: none;"/>
+    </div>
+    <div id="indic-cover">
+        <div id="wave-line"></div>
+        <div id="wave-indicator">
+        </div>
+    </div>
+    <div id="feedback">
+        <h3>Feedback</h3>
+        <table class="table">
+            <tr id="word">
+                <td><b>Phrase</b></td>
+            </tr>
+            <tr id="cmu-mpd">
+                <td>
+                    <table>
+                        <tr>
+                            <td class="nowrap"><b>Target Pronunciation</b></td>
+                        </tr>
+                        <tr>
+                            <td class="nowrap"><b>Your Pronunciation</b></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    <span class='wrong-box'>&nbsp;&nbsp;&nbsp;&nbsp;</span> Wrong pronunciation<br/>
+                    <span class='missing-box'>&nbsp;&nbsp;&nbsp;&nbsp;</span> This sound is missing in your pronunciation<br/>
+                    <span class='extra-box'>&nbsp;&nbsp;&nbsp;&nbsp;</span> This sound is extra in your pronunciation
+                </td>
+                <td>
+                    <div id="example-pronunciation">
+                        <b>Examples</b>
+                        <hr />
+                        <ul id="examps">
+
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+    <audio id="myplayer" controls="false" onended="playingended()" onTimeUpdate="showBars(this)"></audio>
+    <div id="screen">
+        <img src="img/loading.svg"/>
+    </div>
+    <script>
+        var Mic;
+var left = 0;
+var waveInterval;
+var soundIndicatorInterval;
+var recording = false;
+var mycontext;
+var audioChunks;
+var mediaRecorder;
+var blobToSend;
+    </script>
+    <script src="js/newaudio.js"></script>
+    <script src="js/fileUpload.js"></script>
+</body>
+</html>

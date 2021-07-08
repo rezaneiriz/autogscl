@@ -112,50 +112,7 @@ function checktext(){
 }
 
 function startRecording() {
-    if (recording == false) {
-        $('#wave-line').css('background-color', '#990000');
-        recording = true;
-        $('#recordme').val('Stop');
-        $('#playme').attr('disabled', 'disabled');
-        $('#wave-indicator').html('');
-        left = 0;
-        beginRecording();
-        //Mic = new Microphone();
-        //mycontext = new AudioContext();
-        //Mic.startMic(mycontext);
-        /*
-        soundIndicatorInterval = window.setInterval(() => {
-            if(recording == true){
-                $('#sound-indicator').css({
-                    width: Mic.getVol() + 50 + 'px',
-                    height: Mic.getVol() + 50 + 'px'
-                })
-            }
-            
-        }, 100);
-        */
-        waveInterval = window.setInterval(() => {
-            if (recording == true && volume > 0) {
-                var newbar = $('<span class="indic">');
-                newbar.css({
-                    height: volume + 'px',
-                    left: left + 'px'
-                });
-                $('#wave-indicator').append(newbar);
-                $('#wave-indicator').scrollLeft($('#wave-indicator')[0].scrollWidth);
-                left = left + 3;
-            }
-        }, 200);
-
-    }
-    else {
-        recording = false;
-        $('#recordme').val('Record');
-        //mediaRecorder.stop();
-        endRecording();
-        $('#playme').removeAttr('disabled');
-        window.clearInterval(waveInterval);
-    }
+    $('#fileUpload')[0].click();
 
 }
 

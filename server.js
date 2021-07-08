@@ -15,6 +15,9 @@ app.use(express.static(__dirname + '/public/'));
 app.get('/', (req, res) => {
     res.render('pages/home');
 });
+app.get('/upload', (req, res)=>{
+    res.render('pages/fileUpload');
+})
 
 app.post('/sendthis', (req, res) => {
     var mywords = req.body.text.toLowerCase().split(/\s+/);
