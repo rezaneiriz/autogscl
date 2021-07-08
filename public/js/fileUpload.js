@@ -145,7 +145,7 @@ function showBars(control){
 
 
 function nextStage(){
-    if (blob != null){
+    if ($('#fileUploader')[0].files[0] != null){
         var base64;
         var reader = new window.FileReader();
         reader.readAsDataURL($('#fileUploader')[0].files[0]); 
