@@ -277,4 +277,3 @@ function readThis(text){
     speech.text = $(text).find('.wordbody').eq(0).html();
     window.speechSynthesis.speak(speech);
 }
-$('#text').remove();
