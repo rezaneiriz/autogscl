@@ -226,19 +226,19 @@ function nextStage(){
                             if (cmu == 'sil'){
                                 var cmuFb = $('<td />');
                                 $(cmuFb).html('');
-                                var mpdFb = $('<td onclick="showSample(' + mpd + '")/>');
+                                var mpdFb = $('<td onclick="showSample(' + mpd + ')"/>');
                                 $(mpdFb).html(dictionary[mpd]).addClass('extra');
                             }
                             else if(mpd == 'sil'){
-                                var cmuFb = $('<td onclick="showSample(' + cmu + '")/>').addClass('missing');
+                                var cmuFb = $('<td onclick="showSample(' + cmu + ')"/>').addClass('missing');
                                 $(cmuFb).html(dictionary[cmu]);
                                 var mpdFb = $('<td />');
                                 $(mpdFb).html('');
                             }
                             else if (cmu != mpd){
-                                var cmuFb = $('<td onclick="showSample(' + cmu + '")/>');
+                                var cmuFb = $('<td onclick="showSample(' + cmu + ')"/>');
                                 $(cmuFb).html(dictionary[cmu]);
-                                var mpdFb = $('<td onclick="showSample(' + mpd + '")/>');
+                                var mpdFb = $('<td onclick="showSample(' + mpd + ')"/>');
                                 $(mpdFb).html(dictionary[mpd]).addClass('wrong');
                             }
                             else{
