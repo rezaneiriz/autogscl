@@ -226,19 +226,19 @@ function nextStage(){
                             if (cmu == 'sil'){
                                 var cmuFb = $('<td />');
                                 $(cmuFb).html('');
-                                var mpdFb = $('<td />');
+                                var mpdFb = $('<td onclick="showSample(' + mpd + '")/>');
                                 $(mpdFb).html(dictionary[mpd]).addClass('extra');
                             }
                             else if(mpd == 'sil'){
-                                var cmuFb = $('<td />').addClass('missing');
+                                var cmuFb = $('<td onclick="showSample(' + cmu + '")/>').addClass('missing');
                                 $(cmuFb).html(dictionary[cmu]);
                                 var mpdFb = $('<td />');
                                 $(mpdFb).html('');
                             }
                             else if (cmu != mpd){
-                                var cmuFb = $('<td />');
+                                var cmuFb = $('<td onclick="showSample(' + cmu + '")/>');
                                 $(cmuFb).html(dictionary[cmu]);
-                                var mpdFb = $('<td />');
+                                var mpdFb = $('<td onclick="showSample(' + mpd + '")/>');
                                 $(mpdFb).html(dictionary[mpd]).addClass('wrong');
                             }
                             else{
@@ -275,5 +275,24 @@ function readThis(text){
     speech.lang = 'en';
     speech.rate = 0.8;
     speech.text = $(text).find('.wordbody').eq(0).html();
+    window.speechSynthesis.speak(speech);
+}
+
+function showSample(arpabet){
+    exm = examples[arpabet];
+    var word;
+    exm.forEach((item, index)=>{
+        word = $('<li data-word="' + item.replace(/#&/g, '') + '" onclick="readThis2(this)"/>');
+        $(word).html(item.replace('#', '<span class="emph">').replace('&', '</span>') + '&nbsp;<i class="fa fa-volume-up">');
+        $('#examps').append($(word));
+    });
+    $('#example-pronunciation').fadeIn();
+}
+
+function readThis2(text){
+    var speech = new SpeechSynthesisUtterance();
+    speech.lang = 'en';
+    speech.rate = 0.8;
+    speech.text = $(text).data('word');
     window.speechSynthesis.speak(speech);
 }

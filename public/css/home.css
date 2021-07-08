@@ -88,6 +88,7 @@ h3{
 }
 .wrong{
     color: red;
+    cursor: pointer;
 }
 span{
     margin-right: 3px;
@@ -95,9 +96,11 @@ span{
 }
 .missing{
     color: #ff9900;
+    cursor: pointer;
 }
 .extra{
     color:#990099;
+    cursor: pointer;
 }
 .wrong-box{
     background-color: red;
@@ -140,4 +143,22 @@ span{
 }
 .table{
     display: inline-block;
+}
+.wrong:hover, .missing:hover, .extra:hover{
+    font-weight: bold;
+}
+#example-pronunciation{
+    border: 1px solid #333;
+    box-shadow: 3px 2px 0px 6px #333;
+    display: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+.emph{
+    text-decoration: underline;
+    font-weight: bold;
+    color: #009fff;
+}
+.fa:hover{
+    color: #009fff;
 }

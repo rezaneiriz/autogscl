@@ -47,9 +47,24 @@
                 </td>
             </tr>
         </table>
-        <span class='wrong-box'>&nbsp;&nbsp;&nbsp;&nbsp;</span> Wrong pronunciation<br/>
-        <span class='missing-box'>&nbsp;&nbsp;&nbsp;&nbsp;</span> This sound is missing in your pronunciation<br/>
-        <span class='extra-box'>&nbsp;&nbsp;&nbsp;&nbsp;</span> This sound is extra in your pronunciation
+        <table>
+            <tr>
+                <td>
+                    <span class='wrong-box'>&nbsp;&nbsp;&nbsp;&nbsp;</span> Wrong pronunciation<br/>
+                    <span class='missing-box'>&nbsp;&nbsp;&nbsp;&nbsp;</span> This sound is missing in your pronunciation<br/>
+                    <span class='extra-box'>&nbsp;&nbsp;&nbsp;&nbsp;</span> This sound is extra in your pronunciation
+                </td>
+                <td>
+                    <div id="example-pronunciation">
+                        <b>Examples</b>
+                        <ul id="examps">
+
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
     </div>
     <audio id="myplayer" controls="false" onended="playingended()" onTimeUpdate="showBars(this)"></audio>
     <div id="screen">
