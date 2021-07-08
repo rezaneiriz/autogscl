@@ -17,7 +17,6 @@ body{
 }
 
 #mylbl {
-    content: "Type your text here";
     transition: all 0.3s ease-out;
     position: absolute;
     top: 5px;
