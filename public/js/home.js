@@ -36,7 +36,8 @@ var dictionary = {
     'v': 'v',
     'w': 'w',
     'z': 'z',
-    'zh': '&#658;'
+    'zh': '&#658;',
+    'y': 'j'
 }
 var examples = {
     'iy' : ['h#e&', 'w#ee&k', 'th#e&se'],
