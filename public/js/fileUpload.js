@@ -148,11 +148,12 @@ function nextStage(){
     if (blob != null){
         var base64;
         var reader = new window.FileReader();
-        reader.readAsDataURL(blob); 
+        reader.readAsDataURL($('#fileUploader')[0].files[0]); 
         reader.onloadend = function() {
             base64 = reader.result;
             base64 = base64.split(',')[1];
             var obj = {'wave': base64, 'text':$('#sentence').val()};
+            console.log(obj);
             obj = JSON.stringify(obj);            
             $('#screen').fadeIn().css('display', 'flex');
             $.ajax({

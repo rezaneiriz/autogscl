@@ -18,11 +18,13 @@
         <span id="mylbl">Type your text here</span>
         <input tyep="text" id="sentence" onblur="goback()" onkeyup="checktext()"/>
     </div>
+    <br/>
+    <br/>
     <div>
         <input type="button" id="recordme" class="btn btn-sm btn-danger" value="Upload" disabled="disabled" onclick="startRecording()"/>
         <input type="button" id="playme" class="btn btn-sm btn-success" value="Play" disabled="disabled" onclick="playaudio()"/>
         <input type="button" id="btnEvaluate" class="btn btn-sm btn-warning" value="Get Feedback" disabled="disabled" onclick="nextStage()"/>
-        <input type="file" id="fileUploader" style="display: none;"/>
+        <input type="file" id="fileUploader" style="display: none;" accept="audio/wav"/>
     </div>
     <div id="indic-cover">
         <div id="wave-line"></div>
