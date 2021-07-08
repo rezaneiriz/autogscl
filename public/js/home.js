@@ -282,7 +282,7 @@ function showSample(arpabet){
     exm = examples[arpabet];
     var word;
     exm.forEach((item, index)=>{
-        word = $('<li data-word="' + item.replace(/#&/g, '') + '" onclick="readThis2(this)"/>');
+        word = $('<li data-word="' + item.replace(/[#&]/g, '') + '" onclick="readThis2(this)"/>');
         $(word).html(item.replace('#', '<span class="emph">').replace('&', '</span>') + '&nbsp;<i class="fa fa-volume-up">');
         $('#examps').append($(word));
     });
