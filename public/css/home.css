@@ -159,6 +159,7 @@ span{
     display: none;
     border-radius: 5px;
     padding: 5px;
+    margin-left: 15px;
 }
 .emph{
     text-decoration: underline;
@@ -169,5 +170,7 @@ span{
 }
 li:hover{
     color: #009fff;
-    text-shadow: 0px 0px 4px #009fff;
+}
+li{
+    cursor: pointer;
 }
