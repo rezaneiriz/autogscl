@@ -157,8 +157,8 @@ span{
     display: inline-block;
 }
 #example-pronunciation{
-    border: 1px solid #333;
-    box-shadow: 3px 2px 0px 6px #333;
+    border: 1px solid rgba (0, 124, 255, 0.3);
+    box-shadow: 0px 0px 5px 0px #009fff;
     display: none;
     border-radius: 5px;
     padding: 5px;
@@ -170,5 +170,5 @@ span{
 }
 .li:hover{
     color: #009fff;
-    text-shadow: 0px 0px 2px 3px #009fff;
+    text-shadow: 0px 0px 2px 0px #009fff;
 }
