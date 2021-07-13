@@ -212,7 +212,7 @@ function nextStage(){
                     for (var i = 0; i < Object.keys(feedback).length;i++){
 
                         var word = $('<td class="fb" onclick="readThis(this)"/>');
-                        $(word).html('<span class="wordbody">' + feedback[i].word + '</span>&nbsp;<i class="fa fa-volume-up"></i>').addClass('tts nowrap');
+                        $(word).html('<span class="wordbody">' + feedback[i].word + '</span>').addClass('tts nowrap clickable');
                         $('#word').append($(word));
 
                         
@@ -227,25 +227,25 @@ function nextStage(){
                                 var cmuFb = $('<td />');
                                 $(cmuFb).html('');
                                 var mpdFb = $('<td onclick="showSample(\'' + mpd + '\')"/>');
-                                $(mpdFb).html(dictionary[mpd]).addClass('extra');
+                                $(mpdFb).html(dictionary[mpd]).addClass('extra clickable');
                             }
                             else if(mpd == 'sil'){
-                                var cmuFb = $('<td onclick="showSample(\'' + cmu + '\')"/>').addClass('missing');
+                                var cmuFb = $('<td onclick="showSample(\'' + cmu + '\')"/>').addClass('missing clickable');
                                 $(cmuFb).html(dictionary[cmu]);
                                 var mpdFb = $('<td />');
                                 $(mpdFb).html('');
                             }
                             else if (cmu != mpd){
                                 var cmuFb = $('<td onclick="showSample(\'' + cmu + '\')"/>');
-                                $(cmuFb).html(dictionary[cmu]);
+                                $(cmuFb).html(dictionary[cmu]).addClass('clickable');
                                 var mpdFb = $('<td onclick="showSample(\'' + mpd + '\')"/>');
-                                $(mpdFb).html(dictionary[mpd]).addClass('wrong');
+                                $(mpdFb).html(dictionary[mpd]).addClass('wrong clickable');
                             }
                             else{
-                                var cmuFb = $('<td />');
-                                $(cmuFb).html(dictionary[cmu]);
-                                var mpdFb = $('<td />');
-                                $(mpdFb).html(dictionary[mpd]);
+                                var cmuFb = $('<td onclick="showSample(\'' + cmu + '\')"/>');
+                                $(cmuFb).html(dictionary[cmu]).addClass('clickable');
+                                var mpdFb = $('<td onclick="showSample(\'' + mpd + '\')"/>');
+                                $(mpdFb).html(dictionary[mpd]).addClass('clickable');
                             }
 
                             $(cmuFb).addClass('space');
