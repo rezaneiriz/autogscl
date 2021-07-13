@@ -142,14 +142,7 @@ span{
     white-space: nowrap;
     text-overflow: auto;
 }
-.tts{
-    cursor: pointer;
-    font-weight: bold;
-    
-}
-.tts:hover{
-    color:#009fff;
-}
+
 .table{
     display: inline-block;
 }
@@ -174,3 +167,21 @@ li:hover{
 li{
     cursor: pointer;
 }
+
+.clickable{
+    text-decoration: none;
+    border-bottom: 1px dotted #000;
+    cursor: pointer;
+  }
+  .clickable:hover{
+    color: #009fff;
+    border-bottom-color: #009fff;
+  }
+  .clickable:hover::after{
+    content: '\f0da';
+     font-family: FontAwesome;
+     font-weight: normal;
+     font-style: normal;
+     margin:0px 0px 0px 10px;
+     text-decoration:none;
+  }
