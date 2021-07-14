@@ -160,7 +160,7 @@ function nextStage(){
         $('#example-pronunciation').hide();
         var base64;
         var reader = new window.FileReader();
-        reader.readAsBinaryString($('#fileUploader')[0].files[0]); 
+        reader.readAsDataURL($('#fileUploader')[0].files[0]); 
         reader.onloadend = function() {
             console.log(reader.result);
             base64 = reader.result;
