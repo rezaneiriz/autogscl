@@ -174,7 +174,7 @@ li{
     cursor: pointer;
     position: relative;
   }
-  .clickable:hover, .clickable1:hover{
+  .clickable:hover .clickable1:hover{
     color: #009fff;
     border-bottom-color: #009fff;
   }
