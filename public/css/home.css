@@ -186,9 +186,17 @@ li{
      margin:0px 0px 0px 0px;
      text-decoration:none;
      position: absolute;
-     right: -3px;
+     right: 0px;
      top: 3px;
   }
   .clickable1:hover::after{
-      right: 0px;
+    content: '\f0da';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 12px;
+    margin:0px 0px 0px 0px;
+    text-decoration:none;
+    position: absolute;
+    right: -3px;
+    top: 3px;
   }
