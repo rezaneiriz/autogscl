@@ -168,13 +168,13 @@ li{
     cursor: pointer;
 }
 
-.clickable{
+.clickable .clickable1{
     text-decoration: none;
     border-bottom: 1px dotted #000;
     cursor: pointer;
     position: relative;
   }
-  .clickable:hover{
+  .clickable:hover, .clickable1:hover{
     color: #009fff;
     border-bottom-color: #009fff;
   }
@@ -187,4 +187,8 @@ li{
      text-decoration:none;
      position: absolute;
      right: -3px;
+     top: 3px;
+  }
+  .clickable1:hover::after{
+      right: 0px;
   }
