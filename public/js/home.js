@@ -190,6 +190,7 @@ function showBars(control){
 
 function nextStage(){
     if (blob != null){
+        $('#example-pronunciation').hide();
         var base64;
         var reader = new window.FileReader();
         reader.readAsDataURL(blob); 
@@ -287,8 +288,8 @@ function showSample(arpabet){
     var word;
     $('#examps').html('');
     exm.forEach((item, index)=>{
-        word = $('<li data-word="' + item.replace(/[#&]/g, '') + '" onclick="readThis2(this)"/>');
-        $(word).html(item.replace('#', '<span class="emph">').replace('&', '</span>') + '&nbsp;<i class="fa fa-volume-up">');
+        word = $('<li data-word="' + item.replace(/[#&]/g, '') + '" onclick="readThis2(this)" class="clickable2"/>');
+        $(word).html(item.replace('#', '<span class="emph">').replace('&', '</span>'));
         $('#examps').append($(word));
     });
     $('#example-pronunciation').fadeIn();

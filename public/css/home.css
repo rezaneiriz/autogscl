@@ -168,7 +168,7 @@ li{
     cursor: pointer;
 }
 
-.clickable, .clickable1{
+.clickable, .clickable1, .clickable2{
     text-decoration: none;
     border-bottom: 1px dotted #000;
     cursor: pointer;
@@ -177,6 +177,10 @@ li{
   .clickable:hover, .clickable1:hover{
     color: #009fff;
     border-bottom-color: #009fff;
+  }
+  .clickable2:hover{
+      color:#007700;
+      border-bottom-color: #007700;
   }
   .clickable:hover::after{
     content: '\f0da';
@@ -189,7 +193,7 @@ li{
      right: 0px;
      top: 3px;
   }
-  .clickable1:hover::after{
+  .clickable1:hover::after, .clickable2:hover::after{
     content: '\f0da';
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
@@ -197,6 +201,6 @@ li{
     margin:0px 0px 0px 0px;
     text-decoration:none;
     position: absolute;
-    right: -3px;
+    right: -6px;
     top: 3px;
   }
