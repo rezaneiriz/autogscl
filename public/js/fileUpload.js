@@ -162,8 +162,7 @@ function nextStage(){
         var reader = new window.FileReader();
         reader.readAsDataURL($('#fileUploader')[0].files[0]); 
         reader.onloadend = function() {
-            const audioUrl = URL.createObjectURL(reader.result);
-            $('#myplayer').attr('src', audioUrl);
+            $('#myplayer').attr('src', reader.result);
             $('#playme').removeAttr('disabled');
             base64 = reader.result;
             base64 = base64.split(',')[1];
