@@ -286,10 +286,13 @@ function readThis(text){
 function showSample(arpabet){
     exm = examples[arpabet];
     var word;
+    var wordInner;
     $('#examps').html('');
     exm.forEach((item, index)=>{
         word = $('<li data-word="' + item.replace(/[#&]/g, '') + '" onclick="readThis2(this)" class="clickable2"/>');
-        $(word).html(item.replace('#', '<span class="emph">').replace('&', '</span>'));
+        wordInner = $('<span class="clickable2" />');
+        $(wordInner).html(item.replace('#', '<span class="emph">').replace('&', '</span>'));
+        $(word).append($(wordInner));
         $('#examps').append($(word));
     });
     $('#example-pronunciation').fadeIn();
