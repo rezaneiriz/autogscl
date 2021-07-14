@@ -1,3 +1,14 @@
+
+
+
+
+
+
+
+
+
+
+
 var dictionary = {
     'aa': '&#593;',
     'ae': '&aelig;',
@@ -146,14 +157,15 @@ function showBars(control){
 
 function nextStage(){
     if ($('#fileUploader')[0].files[0] != null){
+        $('#example-pronunciation').hide();
         var base64;
         var reader = new window.FileReader();
-        reader.readAsDataURL($('#fileUploader')[0].files[0]); 
+        reader.readAsBinaryString($('#fileUploader')[0].files[0]); 
         reader.onloadend = function() {
+            console.log(reader.result);
             base64 = reader.result;
             base64 = base64.split(',')[1];
             var obj = {'wave': base64, 'text':$('#sentence').val()};
-            console.log(obj);
             obj = JSON.stringify(obj);            
             $('#screen').fadeIn().css('display', 'flex');
             $.ajax({
@@ -169,7 +181,7 @@ function nextStage(){
                     for (var i = 0; i < Object.keys(feedback).length;i++){
 
                         var word = $('<td class="fb" onclick="readThis(this)"/>');
-                        $(word).html('<span class="wordbody">' + feedback[i].word + '</span>&nbsp;<i class="fa fa-volume-up"></i>').addClass('tts nowrap');
+                        $(word).html('<span class="wordbody clickable1">' + feedback[i].word + '</span>').addClass('nowrap');
                         $('#word').append($(word));
 
                         
@@ -184,25 +196,25 @@ function nextStage(){
                                 var cmuFb = $('<td />');
                                 $(cmuFb).html('');
                                 var mpdFb = $('<td onclick="showSample(\'' + mpd + '\')"/>');
-                                $(mpdFb).html(dictionary[mpd]).addClass('extra');
+                                $(mpdFb).html(dictionary[mpd]).addClass('extra clickable');
                             }
                             else if(mpd == 'sil'){
-                                var cmuFb = $('<td onclick="showSample(\'' + cmu + '\')"/>').addClass('missing');
+                                var cmuFb = $('<td onclick="showSample(\'' + cmu + '\')"/>').addClass('missing clickable');
                                 $(cmuFb).html(dictionary[cmu]);
                                 var mpdFb = $('<td />');
                                 $(mpdFb).html('');
                             }
                             else if (cmu != mpd){
                                 var cmuFb = $('<td onclick="showSample(\'' + cmu + '\')"/>');
-                                $(cmuFb).html(dictionary[cmu]);
+                                $(cmuFb).html(dictionary[cmu]).addClass('clickable');
                                 var mpdFb = $('<td onclick="showSample(\'' + mpd + '\')"/>');
-                                $(mpdFb).html(dictionary[mpd]).addClass('wrong');
+                                $(mpdFb).html(dictionary[mpd]).addClass('wrong clickable');
                             }
                             else{
-                                var cmuFb = $('<td />');
-                                $(cmuFb).html(dictionary[cmu]);
-                                var mpdFb = $('<td />');
-                                $(mpdFb).html(dictionary[mpd]);
+                                var cmuFb = $('<td onclick="showSample(\'' + cmu + '\')"/>');
+                                $(cmuFb).html(dictionary[cmu]).addClass('clickable');
+                                var mpdFb = $('<td onclick="showSample(\'' + mpd + '\')"/>');
+                                $(mpdFb).html(dictionary[mpd]).addClass('clickable');
                             }
 
                             $(cmuFb).addClass('space');
@@ -242,10 +254,13 @@ function readThis(text){
 function showSample(arpabet){
     exm = examples[arpabet];
     var word;
+    var wordInner;
     $('#examps').html('');
     exm.forEach((item, index)=>{
         word = $('<li data-word="' + item.replace(/[#&]/g, '') + '" onclick="readThis2(this)"/>');
-        $(word).html(item.replace('#', '<span class="emph">').replace('&', '</span>') + '&nbsp;<i class="fa fa-volume-up">');
+        wordInner = $('<span class="clickable2" />');
+        $(wordInner).html(item.replace('#', '<span class="emph">').replace('&', '</span>'));
+        $(word).append($(wordInner));
         $('#examps').append($(word));
     });
     $('#example-pronunciation').fadeIn();
