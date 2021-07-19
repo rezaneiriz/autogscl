@@ -11,8 +11,10 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public/'));
 
-
-app.get('/', (req, res) => {
+app.get('/', (req, res)=>{
+    res.render('pages/index');
+})
+app.get('/record', (req, res) => {
     res.render('pages/home');
 });
 app.get('/upload', (req, res)=>{

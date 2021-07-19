@@ -1,0 +1,52 @@
+html, body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+.layout{
+    width: 100%;
+    height: 100%;
+    left:0px;
+    top:0px;
+}
+.left{
+    background-color: #0099ff;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    width: 50%;
+}
+.right{
+    color: #0099ff;
+    text-align: center;
+    vertical-align: middle;
+    width: 50%;
+}
+h2{
+    transition: all 0.3s;
+    cursor: pointer;
+    border-bottom: 1px dotted;
+    display: inline-block;
+}
+h2:hover{
+    transform: scale(120%);
+}
+p{
+    margin-top: 30px;
+    width: 80%;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+}
+td:hover{
+    transform:scale3d(0.9, 0.9, 0.9);
+    transition: all 0.3s ease-in;
+}
+
+td:hover h2{
+    transform: scale(120%);
+}
+td{
+    cursor: pointer;
+}

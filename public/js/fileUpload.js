@@ -1,14 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
 var dictionary = {
     'aa': '&#593;',
     'ae': '&aelig;',
@@ -91,6 +80,7 @@ var examples = {
     'l' : ['#l&oud', 'fo#ll&ow', 'ca#ll&'],
     'r' : ['#r&oom', 'a#r&ound', 'fo#r&']
 };
+var obj = null;
 
 
 
@@ -149,7 +139,7 @@ function showBars(control){
     $('#wave-line').css('background-color', '#007fff');
     var myTime = control.currentTime;
     myTime = myTime * 1000;
-    var bar = Math.floor(myTime/200);
+    var bar = Math.floor(myTime/100);
     bar++;
     $('#wave-indicator span').slice(0, bar).css('border-color', '#007FFF');
 }
@@ -160,15 +150,47 @@ function nextStage(){
         $('#example-pronunciation').hide();
         var base64;
         var reader = new window.FileReader();
+        var reader2 = new window.FileReader();
+
         reader.readAsDataURL($('#fileUploader')[0].files[0]); 
+        reader2.readAsArrayBuffer($('#fileUploader')[0].files[0]);
+
+       
+        reader2.onload = function(){
+            var ctx = new window.AudioContext();
+            ctx.decodeAudioData(reader2.result).then(arraybuffer => {
+                var hhh = arraybuffer.getChannelData(0);
+                var steps = arraybuffer.sampleRate/10;
+                var newArray = [];
+                for (var i =0; i < arraybuffer.length; i+= steps){
+                    var currentval = 0;
+                    for (var j = i; j < i+steps; j++){
+                        if (currentval < hhh[j]){
+                            currentval = hhh[j];
+                        }
+                    }
+                    newArray.push(currentval);
+                }
+                var max = Math.max(...newArray);
+                newArray = newArray.map(x =>(x/max)*100);
+                visualize(newArray);
+            });
+        }
         reader.onloadend = function() {
             $('#myplayer').attr('src', reader.result);
             $('#playme').removeAttr('disabled');
             base64 = reader.result;
             base64 = base64.split(',')[1];
             var obj = {'wave': base64, 'text':$('#sentence').val()};
-            obj = JSON.stringify(obj);            
-            $('#screen').fadeIn().css('display', 'flex');
+            obj = JSON.stringify(obj);
+            $('#btnEvaluate').removeAttr('disabled');             
+        }
+    }
+        
+}
+
+function getFeedback(){
+    $('#screen').fadeIn().css('display', 'flex');
             $.ajax({
                 url:'/sendthis',
                 type: 'POST',
@@ -237,11 +259,7 @@ function nextStage(){
                     $('#screen').fadeOut();
                     alert('An error occured! Please try a different sentence/phrase.');
                 }
-            })
-
-        }
-    }
-        
+            });
 }
 
 function readThis(text){
@@ -273,4 +291,15 @@ function readThis2(text){
     speech.rate = 0.8;
     speech.text = $(text).data('word');
     window.speechSynthesis.speak(speech);
+}
+
+function visualize(audioArray){
+    for (var i = 0; i < audioArray.length; i++){
+        var bar = $('<span class="indic"/>');
+        $(bar).css({
+            height: audioArray[i] + 'px',
+            left: 3*i + 'px'
+        });
+        $('#wave-indicator').append($(bar));
+    }
 }

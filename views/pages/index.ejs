@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" />
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <table class="layout">
+        <tr>
+            <td class="left" onclick="gotToRecording()">
+                <h2 onclick="gotToRecording()">Recorder</h2>
+                <p>You can use this page to get feedback on phrases you speak to the microphone. All you have to do is write a phrase and record it. Then, you can have our system analyze your pronuncation and give you feedback.</p>
+            </td>
+            <td class="right" onclick="goToUpload()">
+                <h2 onclick="goToUpload()">Upload</h2>
+                <p>You can upload your WAV audio files using this tool. All you need to do is type in the sentences or phrases in the recording, upload the recording, and send it to our server to analyze it. Then, you will get feedback on pronunciation.</p>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function gotToRecording(){
+            window.location.href = "/record";
+        }
+        function goToUpload(){
+            window.location.href = "/upload";
+        }
+    </script>
+</body>
+</html>

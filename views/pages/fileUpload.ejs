@@ -23,7 +23,7 @@
     <div>
         <input type="button" id="recordme" class="btn btn-sm btn-danger" value="Upload" disabled="disabled" onclick="startRecording()"/>
         <input type="button" id="playme" class="btn btn-sm btn-success" value="Play" disabled="disabled" onclick="playaudio()"/>
-        <input type="button" id="btnEvaluate" class="btn btn-sm btn-warning" value="Get Feedback" disabled="disabled" onclick="nextStage()"/>
+        <input type="button" id="btnEvaluate" class="btn btn-sm btn-warning" value="Get Feedback" disabled="disabled" onclick="getFeedback()"/>
         <input type="file" id="fileUploader" style="display: none;" accept="audio/wav" onchange="nextStage()"/>
     </div>
     <div id="indic-cover">
@@ -85,7 +85,6 @@ var audioChunks;
 var mediaRecorder;
 var blobToSend;
     </script>
-    <script src="js/newaudio.js"></script>
     <script src="js/fileUpload.js"></script>
 </body>
 </html>
