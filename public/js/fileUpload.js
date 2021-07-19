@@ -154,8 +154,6 @@ function nextStage(){
 
         reader.readAsDataURL($('#fileUploader')[0].files[0]); 
         reader2.readAsArrayBuffer($('#fileUploader')[0].files[0]);
-
-       
         reader2.onload = function(){
             var ctx = new window.AudioContext();
             ctx.decodeAudioData(reader2.result).then(arraybuffer => {
@@ -181,7 +179,7 @@ function nextStage(){
             $('#playme').removeAttr('disabled');
             base64 = reader.result;
             base64 = base64.split(',')[1];
-            var obj = {'wave': base64, 'text':$('#sentence').val()};
+            obj = {'wave': base64, 'text':$('#sentence').val()};
             obj = JSON.stringify(obj);
             $('#btnEvaluate').removeAttr('disabled');             
         }

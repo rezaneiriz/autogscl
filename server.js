@@ -28,7 +28,6 @@ app.post('/sendthis', (req, res) => {
     var interim = '';
     var phones = [];
     for (var i = 0; i < mywords.length; i++){
-        
         interim = cmudict[mywords[i]].replace(/[^a-zA-z\s']/g, '');
         console.log(interim);
         phones = interim.split(' ');
