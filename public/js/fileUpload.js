@@ -147,6 +147,7 @@ function showBars(control){
 
 function nextStage(){
     if ($('#fileUploader')[0].files[0] != null){
+        $('.indic').remove();
         $('#example-pronunciation').hide();
         var base64;
         var reader = new window.FileReader();
