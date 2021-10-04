@@ -254,8 +254,9 @@ function getFeedback(){
                     }
                                  
                 },
-                error: function(){
+                error: function(err){
                     $('#screen').fadeOut();
+                    console.log(err);
                     alert('An error occured! Please try a different sentence/phrase.');
                 }
             });
