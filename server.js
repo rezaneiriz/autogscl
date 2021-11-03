@@ -22,12 +22,12 @@ app.get('/upload', (req, res)=>{
 })
 
 app.post('/sendthis', (req, res) => {
+    /*
     var mywords = req.body.text.toLowerCase().split(/\s+/);
     var mytrascript = [];
 
     var interim = '';
     var phones = [];
-    /*
     for (var i = 0; i < mywords.length; i++){
         interim = cmudict[mywords[i]].replace(/[^a-zA-z\s']/g, '');
         console.log(interim);
@@ -46,11 +46,13 @@ app.post('/sendthis', (req, res) => {
     }
 
     // Configure the request
+    var mytext = req.body.text;
+    mytext = mytext.replace(/[\.,:;]/, '');
     var options = {
         url: 'http://localhost:8080/mpd/get_mpd_result',
         method: 'POST',
         headers: headers,
-        form: { 'wav': req.body.wave, 'text': req.body.text }
+        form: { 'wav': req.body.wave, 'text': mytext }
     }
 
     // Start the request
